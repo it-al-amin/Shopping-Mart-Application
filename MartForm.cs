@@ -384,6 +384,7 @@ namespace Shopping_Mart_Application
                     e.Graphics.DrawImage(img, new Rectangle(30, 5, 800, 250));
                 }
             }
+<<<<<<< HEAD
             e.Graphics.DrawString("Invoice Id    :  "+textBoxInvoice.Text,new Font("Arial",15,FontStyle.Bold),Brushes.Black,new Point(30,300));
             e.Graphics.DrawString("User Name :  " + textBoxUser.Text, new Font("Arial", 15, FontStyle.Bold), Brushes.Black, new Point(30, 330));
             e.Graphics.DrawString("Date              :  " + DateTime.Now.ToShortDateString(), new Font("Arial", 15, FontStyle.Bold), Brushes.Black, new Point(30, 360));
@@ -442,6 +443,8 @@ namespace Shopping_Mart_Application
 
 
 
+=======
+>>>>>>> 7257f855ff76c2557e1e802bb832fb92e86b9cfc
         }
     }
 

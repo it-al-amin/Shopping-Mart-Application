@@ -28,7 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
             
+=======
+            DataGridView dataGridView;
+>>>>>>> 7257f855ff76c2557e1e802bb832fb92e86b9cfc
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RoyalMartForm));
