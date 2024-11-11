@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Configuration;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Data;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 namespace Shopping_Mart_Application
 {
     public partial class RoyalMartForm : Form
@@ -92,6 +93,7 @@ namespace Shopping_Mart_Application
             {
                 comboBoxItem.Items.Add(item.ItemName); // Add only the item name to the combo box
             }
+            comboBoxItem.Sorted = true;
         }
 
         public void GetItemsWithCounting(string name, int quantity)
@@ -295,6 +297,43 @@ namespace Shopping_Mart_Application
 
             return newInvoiceId; // Return the new InvoiceId
         }
+        private void InsertIntoOrderDetails()
+        {
+            using (var connection = new SqliteConnection(connectionString))
+            {
+
+
+
+                int invoiceId = Convert.ToInt32(textBoxInvoice.Text), a = 0;
+                try
+                {
+                    for (int i = 0; i < dataGridView.Rows.Count; i++)
+                    {
+                        string sql = "INSERT INTO order_details (invoice_Id, item_name, item_price, item_discount, quantity, subtotal, tax, totalcost) " +
+                          "VALUES (@invoiceId, @itemName, @itemPrice, @itemDiscount, @quantity, @subtotal, @tax, @totalCost);";
+                        using (var cmd = new SqliteCommand(sql, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@invoiceId", invoiceId);
+                            cmd.Parameters.AddWithValue("@itemName", dataGridView.Rows[i].Cells[1].Value.ToString());
+                            cmd.Parameters.AddWithValue("@itemPrice", dataGridView.Rows[i].Cells[2].Value);
+                            cmd.Parameters.AddWithValue("@itemDiscount", dataGridView.Rows[i].Cells[3].Value);
+                            cmd.Parameters.AddWithValue("@quantity", dataGridView.Rows[i].Cells[4].Value);
+                            cmd.Parameters.AddWithValue("@subtotal", dataGridView.Rows[i].Cells[5].Value);
+                            cmd.Parameters.AddWithValue("@tax", dataGridView.Rows[i].Cells[6].Value);
+                            cmd.Parameters.AddWithValue("@totalCost", dataGridView.Rows[i].Cells[7].Value);
+                            connection.Open();
+                            a += cmd.ExecuteNonQuery();
+                            connection.Close();
+                        }
+                    }
+
+                }
+                catch
+                {
+
+                }
+            }
+        }
 
         private void insertBtn_Click(object sender, EventArgs e)
         {
@@ -314,7 +353,7 @@ namespace Shopping_Mart_Application
                     // Use GetInvoiceId to get a new InvoiceId
                     cmd.Parameters.AddWithValue("@InvoiceId", GetInvoiceId());
                     cmd.Parameters.AddWithValue("@UserName", textBoxUser.Text);
-                    cmd.Parameters.AddWithValue("@DateTime", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@DateTime", DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt"));
                     cmd.Parameters.AddWithValue("@FinalCost", Convert.ToDecimal(textBoxFinalCost.Text)); // Use decimal for currency
 
                     conn.Open();
@@ -339,8 +378,10 @@ namespace Shopping_Mart_Application
             finally
             {
                 ResetControls();
+                InsertIntoOrderDetails();
                 textBoxInvoice.Text = GetInvoiceId().ToString();
             }
+
         }
 
         private void textBoxQuantity_KeyPress(object sender, KeyPressEventArgs e)
@@ -369,7 +410,7 @@ namespace Shopping_Mart_Application
 
         private void printBtn_Click(object sender, EventArgs e)
         {
-
+            printDocument.Print();
         }
 
         private void printDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -381,25 +422,24 @@ namespace Shopping_Mart_Application
                 using (var img = Image.FromStream(ms))
                 {
                     // Draw the image on the print document
-                    e.Graphics.DrawImage(img, new Rectangle(30, 5, 800, 250));
+                    e.Graphics.DrawImage(img, new Rectangle(26, 25, 800, 250));
                 }
             }
-<<<<<<< HEAD
-            e.Graphics.DrawString("Invoice Id    :  "+textBoxInvoice.Text,new Font("Arial",15,FontStyle.Bold),Brushes.Black,new Point(30,300));
+            e.Graphics.DrawString("Invoice Id    :  " + textBoxInvoice.Text, new Font("Arial", 15, FontStyle.Bold), Brushes.Black, new Point(30, 300));
             e.Graphics.DrawString("User Name :  " + textBoxUser.Text, new Font("Arial", 15, FontStyle.Bold), Brushes.Black, new Point(30, 330));
             e.Graphics.DrawString("Date              :  " + DateTime.Now.ToShortDateString(), new Font("Arial", 15, FontStyle.Bold), Brushes.Black, new Point(30, 360));
             e.Graphics.DrawString("Time              :  " + DateTime.Now.ToShortTimeString(), new Font("Arial", 15, FontStyle.Bold), Brushes.Black, new Point(30, 390));
             e.Graphics.DrawString("----------------------------------------------------------------------------------------------------------------", new Font("Arial", 15, FontStyle.Bold), Brushes.Black, new Point(30, 420));
             e.Graphics.DrawString("ITEM", new Font("Arial", 15, FontStyle.Bold), Brushes.Black, new Point(30, 450));
-            e.Graphics.DrawString("UNIT PREICE " , new Font("Arial", 15, FontStyle.Bold), Brushes.Black, new Point(210, 450));
+            e.Graphics.DrawString("UNIT PREICE ", new Font("Arial", 15, FontStyle.Bold), Brushes.Black, new Point(210, 450));
             e.Graphics.DrawString("DISCOUNT ", new Font("Arial", 15, FontStyle.Bold), Brushes.Black, new Point(410, 450));
             e.Graphics.DrawString("QUANTITY ", new Font("Arial", 15, FontStyle.Bold), Brushes.Black, new Point(640, 450));
             e.Graphics.DrawString("----------------------------------------------------------------------------------------------------------------", new Font("Arial", 15, FontStyle.Bold), Brushes.Black, new Point(30, 480));
-            int gap = 510,subTotal=0,Tax=0,finalAmount=0,change=0,paid=0;
+            int gap = 510, subTotal = 0, Tax = 0, finalAmount = 0, change = 0, paid = 0;
 
             if (dataGridView.Rows.Count > 0)
             {
-               
+
                 for (int i = 0; i < dataGridView.Rows.Count; i++)
                 {
                     try
@@ -409,9 +449,9 @@ namespace Shopping_Mart_Application
                         e.Graphics.DrawString(dataGridView.Rows[i].Cells[3].Value.ToString(), new Font("Arial", 15, FontStyle.Bold), Brushes.Black, new Point(450, gap));
                         e.Graphics.DrawString(dataGridView.Rows[i].Cells[4].Value.ToString(), new Font("Arial", 15, FontStyle.Bold), Brushes.Black, new Point(680, gap));
                         gap += 30;
-                        subTotal+= Convert.ToInt32(dataGridView.Rows[i].Cells[5].Value.ToString());
+                        subTotal += Convert.ToInt32(dataGridView.Rows[i].Cells[5].Value.ToString());
                         Tax += Convert.ToInt32(dataGridView.Rows[i].Cells[6].Value.ToString());
-                        
+
                     }
                     catch
                     {
@@ -420,17 +460,17 @@ namespace Shopping_Mart_Application
 
                 }
             }
-            finalAmount=subTotal+Tax;
+            finalAmount = subTotal + Tax;
             if (textBoxPaid.Text.Length > 0)
             {
                 paid = Convert.ToInt32(textBoxPaid.Text);
-                change =paid - finalAmount;
+                change = paid - finalAmount;
             }
-            
 
-            e.Graphics.DrawString("----------------------------------------------------------------------------------------------------------------", new Font("Arial", 15, FontStyle.Bold), Brushes.Black, new Point(30, gap+250));
 
-            e.Graphics.DrawString("Sub-Total        :  "+subTotal.ToString(), new Font("Arial", 15, FontStyle.Bold), Brushes.Black, new Point(30, gap+280));
+            e.Graphics.DrawString("----------------------------------------------------------------------------------------------------------------", new Font("Arial", 15, FontStyle.Bold), Brushes.Black, new Point(30, gap + 250));
+
+            e.Graphics.DrawString("Sub-Total        :  " + subTotal.ToString(), new Font("Arial", 15, FontStyle.Bold), Brushes.Black, new Point(30, gap + 280));
             e.Graphics.DrawString("Tax                   :  " + Tax.ToString(), new Font("Arial", 15, FontStyle.Bold), Brushes.Black, new Point(30, gap + 310));
             e.Graphics.DrawString("Final Amount :  " + finalAmount.ToString(), new Font("Arial", 15, FontStyle.Bold), Brushes.Black, new Point(30, gap + 340));
             e.Graphics.DrawString("----------------------------------------------------------------------------------------------------------------", new Font("Arial", 15, FontStyle.Bold), Brushes.Black, new Point(30, gap + 370));
@@ -443,8 +483,64 @@ namespace Shopping_Mart_Application
 
 
 
-=======
->>>>>>> 7257f855ff76c2557e1e802bb832fb92e86b9cfc
+        }
+
+        private void addItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddItemForm add = new AddItemForm();
+            add.ShowDialog();
+
+        }
+
+        private void RoyalMartForm_Activated(object sender, EventArgs e)
+        {
+            // Retrieve the list of items
+            itemList = GetItems();
+
+            // Clear existing items in the combo box (optional)
+            comboBoxItem.Items.Clear();
+
+            // Populate the combo box with item names
+            foreach (var item in itemList)
+            {
+                comboBoxItem.Items.Add(item.ItemName); // Add only the item name to the combo box
+            }
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void editItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EditItemForm edit = new EditItemForm();
+            edit.ShowDialog();
+
+        }
+
+        private void viewDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ViewDataForm view = new ViewDataForm();
+            view.ShowDialog();
+        }
+
+        private void detailsAndSearchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DetailsAndSearchForm details = new DetailsAndSearchForm();
+            details.ShowDialog();
+        }
+
+        private void RoyalMartForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {       
+                  HelpForm help=new HelpForm();
+                  help.ShowDialog();
         }
     }
 

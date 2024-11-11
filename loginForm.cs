@@ -96,10 +96,10 @@ namespace Shopping_Mart_Application
                             MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             // Handle successful login (e.g., navigate to the main form)
-                           
-                            RoyalMartForm form = new RoyalMartForm();
-                            form.ShowDialog();
                             this.Hide();
+                            RoyalMartForm form = new RoyalMartForm();
+                            form.Show();
+                          
 
                         }
                         else

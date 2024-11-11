@@ -28,11 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< HEAD
             
-=======
-            DataGridView dataGridView;
->>>>>>> 7257f855ff76c2557e1e802bb832fb92e86b9cfc
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RoyalMartForm));
@@ -71,9 +67,22 @@
             printBtn = new Button();
             printPreviewDialog = new PrintPreviewDialog();
             printDocument = new System.Drawing.Printing.PrintDocument();
+            menuStrip = new MenuStrip();
+            fileToolStripMenuItem = new ToolStripMenuItem();
+            addItemToolStripMenuItem = new ToolStripMenuItem();
+            exitToolStripMenuItem = new ToolStripMenuItem();
+            editToolStripMenuItem = new ToolStripMenuItem();
+            editItemToolStripMenuItem = new ToolStripMenuItem();
+            viewToolStripMenuItem = new ToolStripMenuItem();
+            viewDataToolStripMenuItem = new ToolStripMenuItem();
+            toolStripMenuItem1 = new ToolStripMenuItem();
+            detailsAndSearchToolStripMenuItem = new ToolStripMenuItem();
+            aboutToolStripMenuItem = new ToolStripMenuItem();
+            helpToolStripMenuItem = new ToolStripMenuItem();
             dataGridView = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
+            menuStrip.SuspendLayout();
             SuspendLayout();
             // 
             // dataGridView
@@ -89,7 +98,7 @@
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
             dataGridView.DefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView.Location = new Point(22, 434);
+            dataGridView.Location = new Point(21, 464);
             dataGridView.Name = "dataGridView";
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Control;
@@ -107,7 +116,7 @@
             // textBoxPaid
             // 
             textBoxPaid.Anchor = AnchorStyles.None;
-            textBoxPaid.Location = new Point(444, 279);
+            textBoxPaid.Location = new Point(443, 309);
             textBoxPaid.Name = "textBoxPaid";
             textBoxPaid.Size = new Size(178, 25);
             textBoxPaid.TabIndex = 8;
@@ -118,7 +127,7 @@
             // 
             label8.Anchor = AnchorStyles.None;
             label8.AutoSize = true;
-            label8.Location = new Point(444, 247);
+            label8.Location = new Point(443, 277);
             label8.Name = "label8";
             label8.Size = new Size(89, 17);
             label8.TabIndex = 10;
@@ -128,7 +137,7 @@
             // 
             textBoxQuantity.Anchor = AnchorStyles.None;
             textBoxQuantity.Enabled = false;
-            textBoxQuantity.Location = new Point(229, 203);
+            textBoxQuantity.Location = new Point(228, 233);
             textBoxQuantity.MaxLength = 3;
             textBoxQuantity.Name = "textBoxQuantity";
             textBoxQuantity.Size = new Size(178, 25);
@@ -140,7 +149,7 @@
             // 
             label7.Anchor = AnchorStyles.None;
             label7.AutoSize = true;
-            label7.Location = new Point(229, 172);
+            label7.Location = new Point(228, 202);
             label7.Name = "label7";
             label7.Size = new Size(62, 17);
             label7.TabIndex = 5;
@@ -150,7 +159,7 @@
             // 
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
-            label1.Location = new Point(22, 101);
+            label1.Location = new Point(21, 131);
             label1.Name = "label1";
             label1.Size = new Size(74, 17);
             label1.TabIndex = 0;
@@ -160,7 +169,7 @@
             // 
             textBoxInvoice.Anchor = AnchorStyles.None;
             textBoxInvoice.ImeMode = ImeMode.Off;
-            textBoxInvoice.Location = new Point(22, 134);
+            textBoxInvoice.Location = new Point(21, 164);
             textBoxInvoice.Name = "textBoxInvoice";
             textBoxInvoice.ReadOnly = true;
             textBoxInvoice.Size = new Size(178, 25);
@@ -170,7 +179,7 @@
             // 
             label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
-            label2.Location = new Point(22, 172);
+            label2.Location = new Point(21, 202);
             label2.Name = "label2";
             label2.Size = new Size(35, 17);
             label2.TabIndex = 1;
@@ -180,7 +189,7 @@
             // 
             label9.Anchor = AnchorStyles.None;
             label9.AutoSize = true;
-            label9.Location = new Point(229, 247);
+            label9.Location = new Point(228, 277);
             label9.Name = "label9";
             label9.Size = new Size(66, 17);
             label9.TabIndex = 6;
@@ -190,7 +199,7 @@
             // 
             label14.Anchor = AnchorStyles.None;
             label14.AutoSize = true;
-            label14.Location = new Point(444, 320);
+            label14.Location = new Point(443, 350);
             label14.Name = "label14";
             label14.Size = new Size(54, 17);
             label14.TabIndex = 11;
@@ -200,7 +209,7 @@
             // 
             textBoxChange.Anchor = AnchorStyles.None;
             textBoxChange.ImeMode = ImeMode.Off;
-            textBoxChange.Location = new Point(443, 353);
+            textBoxChange.Location = new Point(442, 383);
             textBoxChange.Name = "textBoxChange";
             textBoxChange.ReadOnly = true;
             textBoxChange.Size = new Size(178, 25);
@@ -210,7 +219,7 @@
             // 
             textBoxSubtotal.Anchor = AnchorStyles.None;
             textBoxSubtotal.ImeMode = ImeMode.Off;
-            textBoxSubtotal.Location = new Point(229, 279);
+            textBoxSubtotal.Location = new Point(228, 309);
             textBoxSubtotal.Name = "textBoxSubtotal";
             textBoxSubtotal.ReadOnly = true;
             textBoxSubtotal.Size = new Size(178, 25);
@@ -221,7 +230,7 @@
             // 
             textBoxUser.Anchor = AnchorStyles.None;
             textBoxUser.ImeMode = ImeMode.Off;
-            textBoxUser.Location = new Point(22, 203);
+            textBoxUser.Location = new Point(21, 233);
             textBoxUser.Name = "textBoxUser";
             textBoxUser.ReadOnly = true;
             textBoxUser.Size = new Size(178, 25);
@@ -231,7 +240,7 @@
             // 
             label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
-            label3.Location = new Point(22, 246);
+            label3.Location = new Point(21, 276);
             label3.Name = "label3";
             label3.Size = new Size(91, 17);
             label3.TabIndex = 2;
@@ -240,8 +249,10 @@
             // comboBoxItem
             // 
             comboBoxItem.Anchor = AnchorStyles.None;
+            comboBoxItem.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            comboBoxItem.AutoCompleteSource = AutoCompleteSource.ListItems;
             comboBoxItem.FormattingEnabled = true;
-            comboBoxItem.Location = new Point(22, 279);
+            comboBoxItem.Location = new Point(21, 309);
             comboBoxItem.Name = "comboBoxItem";
             comboBoxItem.Size = new Size(178, 25);
             comboBoxItem.TabIndex = 0;
@@ -251,7 +262,7 @@
             // 
             label13.Anchor = AnchorStyles.None;
             label13.AutoSize = true;
-            label13.Location = new Point(229, 101);
+            label13.Location = new Point(228, 131);
             label13.Name = "label13";
             label13.Size = new Size(119, 17);
             label13.TabIndex = 4;
@@ -261,7 +272,7 @@
             // 
             label12.Anchor = AnchorStyles.None;
             label12.AutoSize = true;
-            label12.Location = new Point(444, 172);
+            label12.Location = new Point(443, 202);
             label12.Name = "label12";
             label12.Size = new Size(69, 17);
             label12.TabIndex = 9;
@@ -271,7 +282,7 @@
             // 
             textBoxDiscount.Anchor = AnchorStyles.None;
             textBoxDiscount.ImeMode = ImeMode.Off;
-            textBoxDiscount.Location = new Point(229, 134);
+            textBoxDiscount.Location = new Point(228, 164);
             textBoxDiscount.Name = "textBoxDiscount";
             textBoxDiscount.ReadOnly = true;
             textBoxDiscount.Size = new Size(178, 25);
@@ -281,7 +292,7 @@
             // 
             buttonReset.Anchor = AnchorStyles.None;
             buttonReset.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonReset.Location = new Point(126, 399);
+            buttonReset.Location = new Point(125, 429);
             buttonReset.Name = "buttonReset";
             buttonReset.Size = new Size(74, 30);
             buttonReset.TabIndex = 13;
@@ -293,7 +304,7 @@
             // 
             buttonAdd.Anchor = AnchorStyles.None;
             buttonAdd.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonAdd.Location = new Point(22, 400);
+            buttonAdd.Location = new Point(21, 430);
             buttonAdd.Name = "buttonAdd";
             buttonAdd.Size = new Size(74, 29);
             buttonAdd.TabIndex = 12;
@@ -305,7 +316,7 @@
             // 
             label5.Anchor = AnchorStyles.None;
             label5.AutoSize = true;
-            label5.Location = new Point(22, 320);
+            label5.Location = new Point(21, 350);
             label5.Name = "label5";
             label5.Size = new Size(68, 17);
             label5.TabIndex = 3;
@@ -315,7 +326,7 @@
             // 
             textBoxUnitPrice.Anchor = AnchorStyles.None;
             textBoxUnitPrice.ImeMode = ImeMode.Off;
-            textBoxUnitPrice.Location = new Point(22, 351);
+            textBoxUnitPrice.Location = new Point(21, 381);
             textBoxUnitPrice.Name = "textBoxUnitPrice";
             textBoxUnitPrice.ReadOnly = true;
             textBoxUnitPrice.Size = new Size(178, 25);
@@ -325,7 +336,7 @@
             // 
             label4.Anchor = AnchorStyles.None;
             label4.AutoSize = true;
-            label4.Location = new Point(229, 320);
+            label4.Location = new Point(228, 350);
             label4.Name = "label4";
             label4.Size = new Size(29, 17);
             label4.TabIndex = 7;
@@ -335,7 +346,7 @@
             // 
             textBoxTax.Anchor = AnchorStyles.None;
             textBoxTax.ImeMode = ImeMode.Off;
-            textBoxTax.Location = new Point(229, 353);
+            textBoxTax.Location = new Point(228, 383);
             textBoxTax.Name = "textBoxTax";
             textBoxTax.ReadOnly = true;
             textBoxTax.Size = new Size(178, 25);
@@ -345,7 +356,7 @@
             // 
             label6.Anchor = AnchorStyles.None;
             label6.AutoSize = true;
-            label6.Location = new Point(443, 101);
+            label6.Location = new Point(442, 131);
             label6.Name = "label6";
             label6.Size = new Size(70, 17);
             label6.TabIndex = 8;
@@ -355,7 +366,7 @@
             // 
             label10.Anchor = AnchorStyles.None;
             label10.AutoSize = true;
-            label10.Location = new Point(443, 320);
+            label10.Location = new Point(442, 350);
             label10.Name = "label10";
             label10.Size = new Size(54, 17);
             label10.TabIndex = 11;
@@ -365,7 +376,7 @@
             // 
             label11.Anchor = AnchorStyles.None;
             label11.AutoSize = true;
-            label11.Location = new Point(443, 101);
+            label11.Location = new Point(442, 131);
             label11.Name = "label11";
             label11.Size = new Size(70, 17);
             label11.TabIndex = 8;
@@ -376,7 +387,7 @@
             pictureBox.Anchor = AnchorStyles.None;
             pictureBox.BorderStyle = BorderStyle.Fixed3D;
             pictureBox.Image = (Image)resources.GetObject("pictureBox.Image");
-            pictureBox.Location = new Point(22, 14);
+            pictureBox.Location = new Point(21, 44);
             pictureBox.Name = "pictureBox";
             pictureBox.Size = new Size(599, 84);
             pictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -387,7 +398,7 @@
             // 
             textBoxTotal.Anchor = AnchorStyles.None;
             textBoxTotal.ImeMode = ImeMode.Off;
-            textBoxTotal.Location = new Point(443, 134);
+            textBoxTotal.Location = new Point(442, 164);
             textBoxTotal.Name = "textBoxTotal";
             textBoxTotal.ReadOnly = true;
             textBoxTotal.Size = new Size(178, 25);
@@ -397,7 +408,7 @@
             // 
             textBoxFinalCost.Anchor = AnchorStyles.None;
             textBoxFinalCost.ImeMode = ImeMode.Off;
-            textBoxFinalCost.Location = new Point(443, 203);
+            textBoxFinalCost.Location = new Point(442, 233);
             textBoxFinalCost.Name = "textBoxFinalCost";
             textBoxFinalCost.ReadOnly = true;
             textBoxFinalCost.Size = new Size(178, 25);
@@ -407,9 +418,9 @@
             // 
             clear_Btn.Anchor = AnchorStyles.None;
             clear_Btn.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            clear_Btn.Location = new Point(545, 575);
+            clear_Btn.Location = new Point(545, 605);
             clear_Btn.Name = "clear_Btn";
-            clear_Btn.Size = new Size(76, 33);
+            clear_Btn.Size = new Size(76, 31);
             clear_Btn.TabIndex = 15;
             clear_Btn.Text = "Clear";
             clear_Btn.UseVisualStyleBackColor = true;
@@ -420,7 +431,7 @@
             // 
             insertBtn.Anchor = AnchorStyles.None;
             insertBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            insertBtn.Location = new Point(229, 399);
+            insertBtn.Location = new Point(228, 429);
             insertBtn.Name = "insertBtn";
             insertBtn.Size = new Size(74, 30);
             insertBtn.TabIndex = 14;
@@ -432,7 +443,7 @@
             // 
             PreviewqBtn.Anchor = AnchorStyles.None;
             PreviewqBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            PreviewqBtn.Location = new Point(333, 400);
+            PreviewqBtn.Location = new Point(332, 430);
             PreviewqBtn.Name = "PreviewqBtn";
             PreviewqBtn.Size = new Size(180, 30);
             PreviewqBtn.TabIndex = 14;
@@ -444,7 +455,7 @@
             // 
             printBtn.Anchor = AnchorStyles.None;
             printBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            printBtn.Location = new Point(548, 398);
+            printBtn.Location = new Point(547, 428);
             printBtn.Name = "printBtn";
             printBtn.Size = new Size(74, 30);
             printBtn.TabIndex = 14;
@@ -466,11 +477,97 @@
             // 
             printDocument.PrintPage += printDocument_PrintPage;
             // 
+            // menuStrip
+            // 
+            menuStrip.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, viewToolStripMenuItem, toolStripMenuItem1, aboutToolStripMenuItem });
+            menuStrip.Location = new Point(0, 0);
+            menuStrip.Name = "menuStrip";
+            menuStrip.Size = new Size(644, 24);
+            menuStrip.TabIndex = 16;
+            menuStrip.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { addItemToolStripMenuItem, exitToolStripMenuItem });
+            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            fileToolStripMenuItem.Size = new Size(37, 20);
+            fileToolStripMenuItem.Text = "File";
+            // 
+            // addItemToolStripMenuItem
+            // 
+            addItemToolStripMenuItem.Name = "addItemToolStripMenuItem";
+            addItemToolStripMenuItem.Size = new Size(123, 22);
+            addItemToolStripMenuItem.Text = "Add Item";
+            addItemToolStripMenuItem.Click += addItemToolStripMenuItem_Click;
+            // 
+            // exitToolStripMenuItem
+            // 
+            exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            exitToolStripMenuItem.Size = new Size(123, 22);
+            exitToolStripMenuItem.Text = "Exit";
+            exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
+            // 
+            // editToolStripMenuItem
+            // 
+            editToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { editItemToolStripMenuItem });
+            editToolStripMenuItem.Name = "editToolStripMenuItem";
+            editToolStripMenuItem.Size = new Size(39, 20);
+            editToolStripMenuItem.Text = "Edit";
+            // 
+            // editItemToolStripMenuItem
+            // 
+            editItemToolStripMenuItem.Name = "editItemToolStripMenuItem";
+            editItemToolStripMenuItem.Size = new Size(121, 22);
+            editItemToolStripMenuItem.Text = "Edit Item";
+            editItemToolStripMenuItem.Click += editItemToolStripMenuItem_Click;
+            // 
+            // viewToolStripMenuItem
+            // 
+            viewToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { viewDataToolStripMenuItem });
+            viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            viewToolStripMenuItem.Size = new Size(44, 20);
+            viewToolStripMenuItem.Text = "View";
+            // 
+            // viewDataToolStripMenuItem
+            // 
+            viewDataToolStripMenuItem.Name = "viewDataToolStripMenuItem";
+            viewDataToolStripMenuItem.Size = new Size(125, 22);
+            viewDataToolStripMenuItem.Text = "View data";
+            viewDataToolStripMenuItem.Click += viewDataToolStripMenuItem_Click;
+            // 
+            // toolStripMenuItem1
+            // 
+            toolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { detailsAndSearchToolStripMenuItem });
+            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            toolStripMenuItem1.Size = new Size(54, 20);
+            toolStripMenuItem1.Text = "Details";
+            // 
+            // detailsAndSearchToolStripMenuItem
+            // 
+            detailsAndSearchToolStripMenuItem.Name = "detailsAndSearchToolStripMenuItem";
+            detailsAndSearchToolStripMenuItem.Size = new Size(169, 22);
+            detailsAndSearchToolStripMenuItem.Text = "Details and search";
+            detailsAndSearchToolStripMenuItem.Click += detailsAndSearchToolStripMenuItem_Click;
+            // 
+            // aboutToolStripMenuItem
+            // 
+            aboutToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { helpToolStripMenuItem });
+            aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            aboutToolStripMenuItem.Size = new Size(52, 20);
+            aboutToolStripMenuItem.Text = "About";
+            // 
+            // helpToolStripMenuItem
+            // 
+            helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            helpToolStripMenuItem.Size = new Size(180, 22);
+            helpToolStripMenuItem.Text = "Help";
+            helpToolStripMenuItem.Click += helpToolStripMenuItem_Click;
+            // 
             // RoyalMartForm
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(644, 631);
+            ClientSize = new Size(644, 643);
             Controls.Add(clear_Btn);
             Controls.Add(textBoxFinalCost);
             Controls.Add(textBoxTotal);
@@ -505,15 +602,20 @@
             Controls.Add(label2);
             Controls.Add(textBoxInvoice);
             Controls.Add(label1);
+            Controls.Add(menuStrip);
             Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Icon = (Icon)resources.GetObject("$this.Icon");
             ImeMode = ImeMode.Off;
             Name = "RoyalMartForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Royal Mart";
+            Activated += RoyalMartForm_Activated;
+            FormClosed += RoyalMartForm_FormClosed;
             Load += MartForm_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox).EndInit();
+            menuStrip.ResumeLayout(false);
+            menuStrip.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -555,5 +657,17 @@
         private Button printBtn;
         private PrintPreviewDialog printPreviewDialog;
         private System.Drawing.Printing.PrintDocument printDocument;
+        private MenuStrip menuStrip;
+        private ToolStripMenuItem fileToolStripMenuItem;
+        private ToolStripMenuItem editToolStripMenuItem;
+        private ToolStripMenuItem viewToolStripMenuItem;
+        private ToolStripMenuItem aboutToolStripMenuItem;
+        private ToolStripMenuItem addItemToolStripMenuItem;
+        private ToolStripMenuItem exitToolStripMenuItem;
+        private ToolStripMenuItem editItemToolStripMenuItem;
+        private ToolStripMenuItem viewDataToolStripMenuItem;
+        private ToolStripMenuItem helpToolStripMenuItem;
+        private ToolStripMenuItem toolStripMenuItem1;
+        private ToolStripMenuItem detailsAndSearchToolStripMenuItem;
     }
 }
